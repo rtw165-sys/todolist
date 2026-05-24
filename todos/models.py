@@ -11,6 +11,6 @@ class Todo(models.Model):
     important = models.BooleanField(default=True)
 
     def __str__(self):
-        created = self.created.strftime("%Y-%m-%d %H:%S")
+        created = self.created.strftime("%Y-%m-%d %H:%M:%S")
         print(created)
-        return f"{self.id}{self.created}{self.title}"
+        return f"{self.id}{created}{self.title}"
