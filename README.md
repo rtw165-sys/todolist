@@ -10,4 +10,14 @@
  - django-admin starproject core .
 
 - 啟動Server
-    - python manage.py runsever 
+    - python manage.py runserver 
+
+- 同步資料表
+ - python manage.py makemigrations 
+ - python manage.py migrate
+
+- 建立管理員
+  -python manage.py createsuperuser
+
+- 
+ - python manage.py startapp users 
