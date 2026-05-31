@@ -41,7 +41,7 @@ def todo_update(request, id):
     if request.method == "GET":
         form = TodoForm(instance=todo)
     elif request.method == "POST":
-        form = TodoForm(request.post, instance=todo)
+        form = TodoForm(request.POST, instance=todo)
         if form.is_valid():
             form.save()
             print("更新todo成功!")

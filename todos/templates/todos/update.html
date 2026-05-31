@@ -1,23 +1,13 @@
 {% extends 'base.html' %}
 {% block head %}
-<title>更新代辦首頁</title>
-<style>
-    body{
-        background-color: aquamarine;
-    }
-</style>
+<title>更新代辦事項</title>
 {% endblock %}
-
 {% block content %}
-    <a href="{% url 'todo-list' %}">首頁</a>
-    <h1>更新代辦事項</h1>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{form.as_p}}        
-        <button type="submit">更新</button>       
-    </form>
-    {% if message %}
-    {{message}}
-    {% endif %}
-
+<h1>更新代辦事項</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">確定</button>
+</form>
+<p>{{message}}</p>
 {% endblock %}
