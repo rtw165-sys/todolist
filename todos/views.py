@@ -23,10 +23,6 @@ def todo_delete(request, id):
     return redirect("todo-list")
 
 
-def todo_update(request):
-    return render(request, "todo/update.html", {"form": TodoForm()})
-
-
 def todo_create(request):
 
     if request.method == "POST":
@@ -51,4 +47,4 @@ def todo_update(request, id):
             print("更新todo成功!")
             message = "更新todo成功!"
 
-    return render(request, "todo/update.html", {"forms=forms", "messages=message"})
+    return render(request, "todos/update.html", {"form": form, "messages": message})

@@ -64,8 +64,8 @@
         <div class="content">{{todo.content|linebreaks}}</div>
         {% endif %}
 
-        <a href="{% url 'todo-delete'  todo.id  %}"onclick="return confirm('是否確定刪除?!')">
-        <a href="{% url 'todo-update'  todo.id  %}"> >/更新</a>      
+        <a href="{% url 'todo-delete'  todo.id  %}"onclick="return confirm('是否確定刪除?!')">刪除</a>
+        <a href="{% url 'todo-update'  todo.id  %}">更新</a>      
 
        
     </div>
