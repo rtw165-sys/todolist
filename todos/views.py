@@ -6,7 +6,7 @@ from .forms import TodoForm
 
 # Create your views here.
 def todo_list(request):
-    todos = Todo.objects.all()
+    todos = Todo.objects.all().order_by("-created", "-important")
     print(todos)
 
     return render(request, "todos/list.html", {"todos": todos})
@@ -23,5 +23,32 @@ def todo_delete(request, id):
     return redirect("todo-list")
 
 
+def todo_update(request):
+    return render(request, "todo/update.html", {"form": TodoForm()})
+
+
 def todo_create(request):
+
+    if request.method == "POST":
+        print(request.POST)
+        form = TodoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            print("新增todo完成!")
+            return redirect("todo-list")
     return render(request, "todos/create.html", {"form": TodoForm()})
+
+
+def todo_update(request, id):
+    todo = Todo.objects.get(id=id)
+    message = None
+    if request.method == "GET":
+        form = TodoForm(instance=todo)
+    elif request.method == "POST":
+        form = TodoForm(request.post, instance=todo)
+        if form.is_valid():
+            form.save()
+            print("更新todo成功!")
+            message = "更新todo成功!"
+
+    return render(request, "todo/update.html", {"forms=forms", "messages=message"})
