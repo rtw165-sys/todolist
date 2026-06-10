@@ -1,23 +1,35 @@
 ### TodoList 專案
 
-- 使用技術
+
+- 使用技術  
     - Django 6.0
 
 - 安裝套件
- - pip install django
+    - pip install django
 
-- 新增專案
- - django-admin starproject core .
+
+### 相關指令
+- 新增專案  
+    - django-admin startproject core .
 
 - 啟動Server
-    - python manage.py runserver 
+    - python manage.py runserver
 
 - 同步資料表
- - python manage.py makemigrations 
- - python manage.py migrate
+    - python manage.py makemigrations
+    - python manage.py migrate
 
 - 建立管理員
-  -python manage.py createsuperuser
+    - python manage.py createsuperuser
 
-- 
- - python manage.py startapp users 
+- 新增APP    
+    - python manage.py startapp users 
+
+
+### 發布相關指令
+- pip freeze > requirements.txt
+
+
+### 將.env參數加入 
+- render-environement
+
