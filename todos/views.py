@@ -23,18 +23,6 @@ def todo_delete(request, id):
     return redirect("todo-list")
 
 
-def todo_create(request):
-
-    if request.method == "POST":
-        print(request.POST)
-        form = TodoForm(request.POST)
-        if form.is_valid():
-            form.save()
-            print("新增todo完成!")
-            return redirect("todo-list")
-    return render(request, "todos/create.html", {"form": TodoForm()})
-
-
 def todo_update(request, id):
     todo = Todo.objects.get(id=id)
     message = None
@@ -47,4 +35,17 @@ def todo_update(request, id):
             print("更新todo成功!")
             message = "更新todo成功!"
 
-    return render(request, "todos/update.html", {"form": form, "messages": message})
+    return render(request, "todos/update.html", {"form": form, "message": message})
+
+
+def todo_create(request):
+
+    if request.method == "POST":
+        print(request.POST)
+        form = TodoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            print("新增todo完成!")
+            return redirect("todo-list")
+
+    return render(request, "todos/create.html", {"form": TodoForm()})
